@@ -24,7 +24,6 @@ singleSlotEntryMap = singleSlotEntryMap?.filter(
   (singleSlotEntry) =>
     currentTime <= getEndTime(singleSlotEntry).asSingleNumber(),
 );
-console.log(singleSlotEntryMap);
 // sort the entries by start time
 singleSlotEntryMap = singleSlotEntryMap?.sort((a, b) => {
   if (a.startTime < b.startTime) {
