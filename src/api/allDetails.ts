@@ -43,12 +43,12 @@ interface AcademicHistory {
 
 interface AttendanceInfoSlot {
   attended: number;
-  totalClasses: number;
+  total: number;
   code: string;
   courseName: string;
   faculty: string;
   percentage: number;
-  typeOfClass: string;
+  type: string;
 }
 
 interface Profile {
