@@ -53,10 +53,17 @@ interface AttendanceInfoSlot {
 
 interface Profile {
   name: string;
-  rollNumber: string;
+  email: string;
+  program: string;
   branch: string;
+  // ex: School of Computer Science & Engineering
+  school: string;
+  appNo: string;
+  regNo: string;
   proctorName: string;
   proctorEmail: string;
+  proctorMobileNumber: string;
+  profileImageBase64: string;
 }
 
 interface TimeSlot {
