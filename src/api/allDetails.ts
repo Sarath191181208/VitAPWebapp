@@ -1,6 +1,41 @@
 const rootUrl = "http://127.0.0.1:5000";
 const allDetailsUrl = rootUrl + "/api/v1/alldetails";
 
+class Time {
+  hours: number;
+  minutes: number;
+  constructor(hours: number, minutes: number) {
+    this.hours = hours;
+    this.minutes = minutes;
+  }
+
+  fromString(time: string) {
+    const [hours, minutes] = time.split(":");
+    this.hours = parseInt(hours);
+    this.minutes = parseInt(minutes);
+  }
+
+  asSingleNumber() {
+    return this.hours * 60 + this.minutes;
+  }
+
+  toString() {
+    return `Time ( ${this.hours}:${this.minutes} )`;
+  }
+
+  isLessThan(time: Time) {
+    return this.asSingleNumber() < time.asSingleNumber();
+  }
+
+  isGreaterThan(time: Time) {
+    return this.asSingleNumber() > time.asSingleNumber();
+  }
+
+  isEqualTo(time: Time) {
+    return this.asSingleNumber() === time.asSingleNumber();
+  }
+}
+
 interface AcademicHistory {
   subjects: Map<string, string> | undefined;
   summary: Map<string, number> | undefined;
@@ -16,10 +51,6 @@ interface AttendanceInfoSlot {
   typeOfClass: string;
 }
 
-interface Attendance {
-  attendance: AttendanceInfoSlot[] | undefined;
-}
-
 interface Profile {
   name: string;
   rollNumber: string;
@@ -32,19 +63,29 @@ interface TimeSlot {
   slot: string;
   startTime: string;
   endTime: string;
-  classRoom: string;
+  class: string;
   courseName: string;
 }
 
-interface TimeTable {
-  timeTable: Map<string, TimeSlot[]> | undefined;
+function getStartTime(timeSlot: TimeSlot) {
+  const startTime = new Time(0, 0);
+  startTime.fromString(timeSlot.startTime);
+  return startTime;
 }
 
-export interface Student {
-  academicHistory: AcademicHistory;
-  attendance: Attendance;
+function getEndTime(timeSlot: TimeSlot) {
+  const endTime = new Time(0, 0);
+  endTime.fromString(timeSlot.endTime);
+  return endTime;
+}
+
+type TimeTable = { [s: string]: TimeSlot[] } | undefined;
+
+interface Student {
+  academic_history: AcademicHistory;
+  attendance: AttendanceInfoSlot[] | undefined;
   profile: Profile;
-  timeTable: TimeTable;
+  timetable: TimeTable;
 }
 
 async function fetchAllDetails(
@@ -62,4 +103,12 @@ async function fetchAllDetails(
   return await response.json();
 }
 
-export { fetchAllDetails };
+export {
+  fetchAllDetails,
+  getEndTime,
+  getStartTime,
+  type Student,
+  Time,
+  type TimeSlot,
+  type TimeTable,
+};
