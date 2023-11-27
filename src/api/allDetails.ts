@@ -104,6 +104,7 @@ async function fetchAllDetails(
 }
 
 export {
+  type AttendanceInfoSlot,
   fetchAllDetails,
   getEndTime,
   getStartTime,
