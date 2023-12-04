@@ -39,7 +39,7 @@
 <div class="container bg-white shadow rounded-lg overflow-hidden">
   <div class="flex flex-col items-center justify-center px-6 py-4">
     {#if profile?.profileImageBase64}
-      <img src="{profile?.profileImageBase64}" class="w-20 h-20 rounded-full object-cover" alt="Profile Image">
+      <img src="{profile?.profileImageBase64}" class="w-20 h-20 rounded-full object-cover" alt="Profile">
     {/if}
 
     <div class="mt-4">
