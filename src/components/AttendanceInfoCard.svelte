@@ -1,6 +1,7 @@
 <script lang="ts">
   import type { AttendanceInfoSlot } from "../api/allDetails";
   export let timeSlotDetails : AttendanceInfoSlot;
+  export let className: string = "";
   let {
     courseName,
     code,
@@ -12,7 +13,7 @@
   } = timeSlotDetails;
 </script>
 
-<div class="bg-white shadow rounded-lg overflow-hidden">
+<div class="bg-white shadow rounded-lg overflow-hidden {className}">
   <div class="px-6 py-4">
     <div class="flex items-center justify-between">
       <h4 class="text-2xl font-bold text-gray-800">{courseName}</h4>
