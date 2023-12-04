@@ -11,6 +11,6 @@ console.log(attendanceData);
 
 {#if attendanceData != undefined}
   {#each Object.values(attendanceData) as item}
-    <AttendanceInfoCard timeSlotDetails={item} />
+    <AttendanceInfoCard timeSlotDetails={item} className="m-5"/>
   {/each}
 {/if}
