@@ -37,8 +37,8 @@ class Time {
 }
 
 interface AcademicHistory {
-  subjects: Map<string, string> | undefined;
-  summary: Map<string, number> | undefined;
+  subjects: { [key: string]: string } | undefined;
+  summary: { [key: string]: number } | undefined;
 }
 
 interface AttendanceInfoSlot {
