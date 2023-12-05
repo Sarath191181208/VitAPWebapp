@@ -3,6 +3,7 @@ import HomeIcon from "../../components/icons/HomeIcon.svelte";
 import BarChartIcon from "../../components/icons/BarChartIcon.svelte"
 import CalenderIcon from "../../components/icons/CalenderIcon.svelte"
 import SettingsIcon from "../../components/icons/SettingsIcon.svelte";
+import AcademicsIcon from "../../components/icons/AcademicsIcon.svelte"
 </script>
 
 <svelte:head>
@@ -53,19 +54,7 @@ import SettingsIcon from "../../components/icons/SettingsIcon.svelte";
         href="/pages/academic_history"
         class="flex flex-col items-center justify-center py-2"
       >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="h-6 w-6"
-          fill="none"
-          viewBox="0 0 24 24"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M12 6v6m0 0v6m0-6h6m-6 0H6"
-          ></path>
-        </svg>
+        <AcademicsIcon className="text-xl"/>
         <span class="text-xs">Academic History</span>
       </a>
     </div>

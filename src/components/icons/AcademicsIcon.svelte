@@ -2,4 +2,4 @@
 export let className: string = "";
 </script>
 
-<i class="mi clipboard-list {className}"></i>
+<i class="mi mi-clipboard-list {className}"></i>
