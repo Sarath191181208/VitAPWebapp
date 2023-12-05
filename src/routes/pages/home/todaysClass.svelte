@@ -46,7 +46,7 @@ if (singleSlotEntryMap?.length == 0) {
   <div class=" {className}">
 <!-- Create a scrollable card container with the timetable  -->
 {#if singleSlotEntryMap != undefined && singleSlotEntryMap.length != 0}
-  <h1 class="text-5xl">{today}</h1>
+  <h1 class="text-2xl mb-5 dark:text-gray-400">{today}</h1>
   {#each singleSlotEntryMap as singleSlotEntry}
     <!-- Create a card style component using tailwind-->
     <TimeTableCard singleSlotEntry="{singleSlotEntry}" />
