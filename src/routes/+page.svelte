@@ -44,41 +44,47 @@ const getUserData = async (
 const form = useForm();
 </script>
 
-<form use:form>
-  <h1>Login</h1>
+<div class="min-h-screen dark:bg-slate-900">
+  <h1
+    class="bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 bg-clip-text p-4 text-5xl font-bold text-transparent"
+  >
+    Login Page
+  </h1>
+  <form use:form>
+    <label for="roll_number" class="dark:text-white">*Roll Number: </label>
+    <input
+      type="text"
+      name="roll_number"
+      use:validators="{[required]}"
+      placeholder="Enter your registration number"
+      class="dark:bg-slate-900 dark:text-white"
+    />
 
-  <label for="roll_number">Roll Number: </label>
-  <input
-    type="text"
-    name="roll_number"
-    use:validators="{[required]}"
-    placeholder="Enter your registration number"
-  />
+    <label for="password" class="dark:text-white">*Password: </label>
+    <input
+      type="password"
+      name="password"
+      use:validators="{[required]}"
+      placeholder="Enter your password"
+      class="dark:bg-slate-900 dark:text-white"
+    />
 
-  <label for="password">Password: </label>
-  <input
-    type="password"
-    name="password"
-    use:validators="{[required]}"
-    placeholder="Enter your password"
-  />
+    <div class="dark:text-white">
+      <HintGroup for="roll_number">
+        <Hint on="required">Roll number is a mandatory field</Hint>
+        <Hint on="Invalid roll number">Please enter a valid roll number</Hint>
+      </HintGroup>
 
-  <div>
-    <HintGroup for="roll_number">
-      <Hint on="required">This is a mandatory field</Hint>
-      <Hint on="Invalid roll number">Please enter a valid roll number</Hint>
-    </HintGroup>
+      <HintGroup for="password">
+        <Hint on="required">Password is a mandatory field</Hint>
+      </HintGroup>
+    </div>
 
-    <HintGroup for="password">
-      <Hint on="required">This is a mandatory field</Hint>
-    </HintGroup>
-  </div>
-
-  <button
-    type="submit"
-    on:click|preventDefault="{() =>
-      getUserData($form.values.roll_number, $form.values.password)}"
-  ></button>
-</form>
-
+    <button
+      type="submit"
+      on:click|preventDefault="{() =>
+        getUserData($form.values.roll_number, $form.values.password)}"
+    ></button>
+  </form>
+</div>
 <!--show userdetails using iteration-->
