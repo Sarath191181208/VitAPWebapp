@@ -44,32 +44,44 @@ const getUserData = async (
 const form = useForm();
 </script>
 
-<div class="min-h-screen dark:bg-slate-900">
+<div class="min-h-screen p-4 dark:bg-slate-900">
   <h1
-    class="bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 bg-clip-text p-4 text-5xl font-bold text-transparent"
+    class="bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 bg-clip-text pb-4 text-5xl font-bold text-transparent"
   >
     Login Page
   </h1>
   <form use:form>
-    <label for="roll_number" class="dark:text-white">*Roll Number: </label>
-    <input
-      type="text"
-      name="roll_number"
-      use:validators="{[required]}"
-      placeholder="Enter your registration number"
-      class="dark:bg-slate-900 dark:text-white"
-    />
+    <div class="mx-auto my-4 grid max-w-xl grid-cols-2 grid-rows-2 gap-2">
+      <label for="roll_number" class="dark:text-white">*Roll Number: </label>
+      <input
+        type="text"
+        name="roll_number"
+        use:validators="{[required]}"
+        placeholder="Enter your registration number"
+        class="dark:bg-slate-900 dark:text-white"
+      />
 
-    <label for="password" class="dark:text-white">*Password: </label>
-    <input
-      type="password"
-      name="password"
-      use:validators="{[required]}"
-      placeholder="Enter your password"
-      class="dark:bg-slate-900 dark:text-white"
-    />
+      <label for="password" class="dark:text-white">*Password: </label>
+      <input
+        type="password"
+        name="password"
+        use:validators="{[required]}"
+        placeholder="Enter your password"
+        class="dark:bg-slate-900 dark:text-white"
+      />
 
-    <div class="dark:text-white">
+      <!--submit button-->
+      <button
+        type="submit"
+        on:click|preventDefault="{() =>
+          getUserData($form.values.roll_number, $form.values.password)}"
+        class="col-span-2 py-2 px-4 rounded text-black dark:text-white max-w-[150px] mx-0 my-4 border-2 border-purple-600 bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 bg-clip-text text-transparent hover:bg-clip-padding hover:border-transparent"
+      >
+        Submit
+      </button>
+    </div>
+
+    <div class="mt-8 text-sm dark:text-white">
       <HintGroup for="roll_number">
         <Hint on="required">Roll number is a mandatory field</Hint>
         <Hint on="Invalid roll number">Please enter a valid roll number</Hint>
