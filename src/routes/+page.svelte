@@ -30,6 +30,7 @@ const getUserData = async (
     return;
   }
   try {
+    showLoader = true;
     let userDetails: Student = await fetchAllDetails(
       allDetailsUrl,
       username,
@@ -136,6 +137,11 @@ const form = useForm();
   </details>
 </div>
 
+{#if showLoader}
+  <div class="fixed top-0 left-0 w-screen h-screen flex justify-center items-center bg-black bg-opacity-50">
+    <div class="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-purple-500"></div>
+  </div>
+{/if}
 
 {#if errorMessage}
   <div
