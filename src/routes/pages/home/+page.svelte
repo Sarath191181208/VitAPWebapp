@@ -29,7 +29,7 @@ import TodaysClass from "./todaysClass.svelte";
     href="/pages/profile"
     class="rounded bg-gray-500 px-4 py-2 font-bold text-white transition hover:bg-gray-700"
   >
-    Profile
+    Settings
   </a>
   <a
     href="/pages/timetable"
