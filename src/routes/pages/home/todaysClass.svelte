@@ -52,5 +52,5 @@ if (singleSlotEntryMap?.length == 0) {
     <TimeTableCard singleSlotEntry="{singleSlotEntry}" />
   {/each}
 {:else}
-  <h1 class="text-5xl">No classes today</h1>
+  <h1 class="text-2xl dark:text-gray-500"> -- No classes today -- </h1>
 {/if}</div>
