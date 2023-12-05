@@ -16,7 +16,7 @@ import {
 import { studentData } from "../stores/student";
 import { fetchAllDetails, type Student } from "../api/allDetails";
 
-let userData: Student | undefined = undefined;
+// let userData: Student | undefined = undefined;
 
 // const rolNumberValidator: Validator = (value: string) => {
 //   const pattern = new RegExp(/\d\d\w\w\w\d\d\d\d/);
@@ -34,8 +34,8 @@ const getUserData = async (
   }
   try {
     let userDetails: Student = await fetchAllDetails(username, password);
-    userData = userDetails;
     studentData.set(userDetails);
+    window.location.href = "/pages/home";
   } catch (error) {
     console.log(error);
   }
