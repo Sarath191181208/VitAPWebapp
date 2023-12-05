@@ -1,6 +1,3 @@
-const rootUrl = "http://127.0.0.1:5000";
-const allDetailsUrl = rootUrl + "/api/v1/alldetails";
-
 class Time {
   hours: number;
   minutes: number;
@@ -96,6 +93,7 @@ interface Student {
 }
 
 async function fetchAllDetails(
+  alldetailsUrl: string,
   username: string,
   password: string,
 ): Promise<Student> {
@@ -103,7 +101,7 @@ async function fetchAllDetails(
   const userNameAndPassword = new FormData();
   userNameAndPassword.append("username", username);
   userNameAndPassword.append("password", password);
-  const response = await fetch(allDetailsUrl, {
+  const response = await fetch(alldetailsUrl, {
     method: "POST",
     body: userNameAndPassword,
   });
