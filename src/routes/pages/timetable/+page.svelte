@@ -2,7 +2,7 @@
 import { studentData } from "../../../stores/student";
 import type { TimeTable } from "../../../api/allDetails";
 import TimeTableCard from "../../../components/TimeTableCard.svelte";
-import BarChartIcon from "../../../components/icons/BarChartIcon.svelte";
+import CalenderIcon from "../../../components/icons/CalenderIcon.svelte";
 
 let timeTable: TimeTable = $studentData?.timetable;
 
@@ -23,7 +23,7 @@ if (timeTable !== undefined && timeTable !== null) {
   <h1
   class="bg-gradient-to-r from-rose-500 to-amber-500 bg-clip-text pb-4 text-5xl font-bold text-transparent"
 >
-  <BarChartIcon className="text-3xl"/> Timetable Page
+  <CalenderIcon className="text-3xl"/> Timetable Page
 </h1>
 
 <!-- Create a scrollable card container with the timetable  -->
