@@ -1,10 +1,11 @@
+
 <script lang="ts">
 import { studentData } from "../../../stores/student";
 import type { TimeTable, TimeSlot } from "../../../api/allDetails";
 import { getEndTime } from "../../../api/allDetails";
 import TimeTableCard from "../../../components/TimeTableCard.svelte";
 
-export let className: string = "";
+export let className: string =  "";
 
 let timeTable: TimeTable = $studentData?.timetable;
 const weekday = [
@@ -42,15 +43,14 @@ if (singleSlotEntryMap?.length == 0) {
 }
 </script>
 
-<div class=" {className}">
-  <!-- Create a scrollable card container with the timetable  -->
-  {#if singleSlotEntryMap != undefined && singleSlotEntryMap.length != 0}
-    <h1 class="text-5xl">{today}</h1>
-    {#each singleSlotEntryMap as singleSlotEntry}
-      <!-- Create a card style component using tailwind-->
-      <TimeTableCard singleSlotEntry="{singleSlotEntry}" />
-    {/each}
-  {:else}
-    <h1 class="text-5xl">No classes today</h1>
-  {/if}
-</div>
+  <div class=" {className}">
+<!-- Create a scrollable card container with the timetable  -->
+{#if singleSlotEntryMap != undefined && singleSlotEntryMap.length != 0}
+  <h1 class="text-5xl">{today}</h1>
+  {#each singleSlotEntryMap as singleSlotEntry}
+    <!-- Create a card style component using tailwind-->
+    <TimeTableCard singleSlotEntry="{singleSlotEntry}" />
+  {/each}
+{:else}
+  <h1 class="text-5xl">No classes today</h1>
+{/if}</div>
