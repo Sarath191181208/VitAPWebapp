@@ -12,17 +12,29 @@ import TodaysClass from "./todaysClass.svelte";
 <TodaysClass />
 
 <!-- create a grid with quick links like acadhistory, attd, profile, timetable  the grid columns are automatic and responseive -->
-<div class="grid grid-cols-2 gap-4 my-10">
-  <a href="/pages/acadhistory" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">
+<div class="my-10 grid grid-cols-2 gap-4">
+  <a
+    href="/pages/acadhistory"
+    class="rounded bg-gray-500 px-4 py-2 font-bold text-white transition hover:bg-gray-700"
+  >
     Acad History
   </a>
-  <a href="/pages/attendance" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">
+  <a
+    href="/pages/attendance"
+    class="rounded bg-gray-500 px-4 py-2 font-bold text-white transition hover:bg-gray-700"
+  >
     Attendance
   </a>
-  <a href="/pages/profile" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">
+  <a
+    href="/pages/profile"
+    class="rounded bg-gray-500 px-4 py-2 font-bold text-white transition hover:bg-gray-700"
+  >
     Profile
   </a>
-  <a href="/pages/timetable" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">
+  <a
+    href="/pages/timetable"
+    class="rounded bg-gray-500 px-4 py-2 font-bold text-white transition hover:bg-gray-700"
+  >
     Timetable
   </a>
 </div>
