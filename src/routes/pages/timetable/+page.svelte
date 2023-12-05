@@ -23,7 +23,7 @@ if (timeTable !== undefined && timeTable !== null) {
 {#if timeTable !== undefined && timeTable !== null }
   {#each ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"] as dayName}
     {#if timeTable[dayName] !== undefined && timeTable[dayName].length != 0}
-      <h1 class="text-5xl">{dayName}</h1>
+      <h1 class="text-2xl mb-5 pl-1 dark:text-gray-400"> {dayName}</h1>
       {#each timeTable[dayName] as singleSlotEntry}
         <!-- Create a card style component using tailwind-->
         <TimeTableCard singleSlotEntry="{singleSlotEntry}"/>
