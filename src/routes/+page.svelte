@@ -48,10 +48,13 @@ const form = useForm();
   <h1
     class="bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 bg-clip-text pb-4 text-5xl font-bold text-transparent"
   >
-    Login Page
+    VIT-AP Webapp
   </h1>
+    <p class="dark:text-gray-300 mt-2">
+    An open source UI wrapper around the open source <a class="underline text-blue-900 dark:text-blue-600" href="https://github.com/Sarath191181208/VTOP_API">VTOP API</a> to make it easier to use. This is an alternative to the UI flutter wrapper <a class="underline text-blue-900 dark:text-blue-600" href="https://github.com/Sarath191181208/vtop_app">vtop app</a>, later formalized as <b> VITAP-App </b>. This project aims to seperate the dependency of running on our server while giving the users to control their own server and use it out of their own accord. Link to the github <a class="underline text-blue-900 dark:text-blue-600" href="https://github.com/Sarath191181208/VitAPWebapp">VitAPWebapp</a>. The project is under MIT License therefore you are free to change it as you please. 
+  </p>
   <form use:form>
-    <div class="mx-auto my-4 grid max-w-xl grid-cols-2 grid-rows-2 gap-2">
+    <div class="mx-auto my-4 grid max-w-xl grid-cols-2 grid-rows-2 gap-2 mt-10">
       <label for="roll_number" class="dark:text-white">*Roll Number: </label>
       <input
         type="text"
