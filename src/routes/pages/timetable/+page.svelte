@@ -2,6 +2,7 @@
 import { studentData } from "../../../stores/student";
 import type { TimeTable } from "../../../api/allDetails";
 import TimeTableCard from "../../../components/TimeTableCard.svelte";
+import BarChartIcon from "../../../components/icons/BarChartIcon.svelte";
 
 let timeTable: TimeTable = $studentData?.timetable;
 
@@ -18,6 +19,12 @@ if (timeTable !== undefined && timeTable !== null) {
   }
 }
 </script>
+
+  <h1
+  class="bg-gradient-to-r from-rose-500 to-amber-500 bg-clip-text pb-4 text-5xl font-bold text-transparent"
+>
+  <BarChartIcon className="text-3xl"/> Timetable Page
+</h1>
 
 <!-- Create a scrollable card container with the timetable  -->
 {#if timeTable !== undefined && timeTable !== null }
