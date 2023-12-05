@@ -42,7 +42,7 @@ import SettingsIcon from "../../components/icons/SettingsIcon.svelte";
         <span class="text-xs">Timetable</span>
       </a>
       <a
-        href="/pages/profile"
+        href="/pages/settings"
         class="flex flex-col items-center justify-center py-2"
       >
         <SettingsIcon className="text-xl"/>

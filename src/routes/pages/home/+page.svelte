@@ -11,7 +11,6 @@ import TodaysClass from "./todaysClass.svelte";
 
 <TodaysClass />
 
-<!-- create a grid with quick links like acadhistory, attd, profile, timetable  the grid columns are automatic and responseive -->
 <div class="my-10 grid grid-cols-2 gap-4">
   <a
     href="/pages/acadhistory"
@@ -26,7 +25,7 @@ import TodaysClass from "./todaysClass.svelte";
     Attendance
   </a>
   <a
-    href="/pages/profile"
+    href="/pages/settings"
     class="rounded bg-gray-500 px-4 py-2 font-bold text-white transition hover:bg-gray-700"
   >
     Settings
