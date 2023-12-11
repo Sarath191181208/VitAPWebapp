@@ -13,7 +13,7 @@ import TodaysClass from "./todaysClass.svelte";
 
 <div class="my-10 grid grid-cols-2 gap-4">
   <a
-    href="/pages/acadhistory"
+    href="/pages/academic_history"
     class="rounded bg-gray-500 px-4 py-2 font-bold text-white transition hover:bg-gray-700"
   >
     Acad History
