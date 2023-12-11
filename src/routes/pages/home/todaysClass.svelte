@@ -4,6 +4,7 @@ import type { TimeTable, TimeSlot } from "../../../api/allDetails";
 import { getEndTime } from "../../../api/allDetails";
 import TimeTableCard from "../../../components/TimeTableCard.svelte";
 import { getCurrentTime, getToday } from "../../../currentDateTime";
+import Carousel from "../../../components/Carousel.svelte";
 
 export let className: string = "";
 
@@ -37,10 +38,12 @@ if (singleSlotEntryMap?.length == 0) {
   <!-- Create a scrollable card container with the timetable  -->
   {#if singleSlotEntryMap != undefined && singleSlotEntryMap.length != 0}
     <h1 class="mb-5 text-2xl dark:text-gray-400">{today}</h1>
-    {#each singleSlotEntryMap as singleSlotEntry}
-      <!-- Create a card style component using tailwind-->
-      <TimeTableCard singleSlotEntry="{singleSlotEntry}" />
-    {/each}
+    <Carousel perPage={1}>
+      {#each singleSlotEntryMap as singleSlotEntry}
+        <!-- Create a card style component using tailwind-->
+        <TimeTableCard className="h-44"  singleSlotEntry="{singleSlotEntry}" />
+      {/each}
+    </Carousel>
   {:else}
     <h1 class="text-2xl dark:text-gray-500">-- No classes today --</h1>
   {/if}
