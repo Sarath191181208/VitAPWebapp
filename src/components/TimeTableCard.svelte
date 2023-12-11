@@ -1,10 +1,11 @@
 <script lang="ts">
 import type { TimeSlot } from "../api/allDetails";
 export let singleSlotEntry: TimeSlot;
+export let className: string = "";
 </script>
 
 <div
-  class="my-2 flex flex-col overflow-hidden rounded-lg bg-white p-6 shadow dark:bg-slate-800 gap-2"
+  class="my-2 flex flex-col overflow-hidden rounded-lg bg-white p-6 shadow dark:bg-slate-800 gap-2 {className}" 
 >
   <p class="text-sm font-medium text-indigo-600 dark:text-blue-300">
     {singleSlotEntry.courseName}
