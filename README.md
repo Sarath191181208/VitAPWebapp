@@ -1,22 +1,32 @@
-# create-svelte
-
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
-
-## Creating a project
-
-If you're seeing this, you've probably already done this step. Congrats!
-
-```bash
-# create a new project in the current directory
-npm create svelte@latest
-
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+# vitap-webapp 
+A web interface for the [VTOP-API](https://github.com/Sarath191181208/VTOP_API/) project.
 
 ## Developing
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+Clone the repo and cd into it.
+```bash
+git clone https://github.com/Sarath191181208/VitAPWebapp
+cd vitap-webapp
+```
+
+Install all the dependencies using npm.
+
+```bash
+npm ci
+```
+
+Clone the VTOP-API repo in an another directory and run it.
+```bash 
+git clone https://github.com/Sarath191181208/VTOP_API/
+```
+**Follow the instructions in the [README](https://github.com/Sarath191181208/VTOP_API/?tab=readme-ov-file#how-to-install-this-project-) to run the API.**
+
+To run the server follow this command 
+```bash 
+waitress-serve --listen=0.0.0.0:5000 wsgi:app
+```
+
+This takes care of the backend. Now we need to run the frontend.
 
 ```bash
 npm run dev
@@ -24,15 +34,3 @@ npm run dev
 # or start the server and open the app in a new browser tab
 npm run dev -- --open
 ```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
