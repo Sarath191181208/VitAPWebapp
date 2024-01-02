@@ -3,12 +3,10 @@ import { getCurriculumUrl, getRootUrl, getLoginUrl } from "./urls";
 
 export const restApi = axios.create({
   baseURL: getRootUrl(),
-  withCredentials: true,
 });
 
 restApi.interceptors.request.use(
   function (config) {
-    config.headers.withCredentials = true; // Sending request with credentials
     return config;
   },
   function (err) {
