@@ -14,7 +14,7 @@ import {
   required,
 } from "svelte-use-form";
 import { studentData } from "../stores/student";
-import { fetchAllDetails, type Student } from "../api/allDetails";
+import { fetchAllDetails, getFilteredTimeTable, type Student } from "../api/allDetails";
 import { getAllDetailsUrl, rootUrl } from "../api/urls";
 import CloseSvg from "../components/icons/CloseSvg.svelte";
 
@@ -36,6 +36,8 @@ const getUserData = async (
       username,
       password,
     );
+    let nonRepeatedTimeTable = getFilteredTimeTable(userDetails.timetable);
+    userDetails.timetable = nonRepeatedTimeTable;
     studentData.set(userDetails);
     window.location.href = "/pages/home";
   } catch (error) {

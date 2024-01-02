@@ -108,11 +108,67 @@ async function fetchAllDetails(
   return await response.json();
 }
 
+function filterSameTimeSlots(timeSlots: TimeSlot[]): TimeSlot[] {
+  const filteredTimeSlots: TimeSlot[] = [];
+
+  // filter the time slots
+  for (let i = 0; i < timeSlots.length; i++) {
+    if (i === 0) {
+      filteredTimeSlots.push(timeSlots[i]);
+    } else {
+      const previousTimeSlot = filteredTimeSlots[filteredTimeSlots.length - 1];
+      const previousEndTime = getEndTime(previousTimeSlot);
+      const currentTimeSlot = timeSlots[i];
+      const currentStartTime = getStartTime(currentTimeSlot);
+      const isOverlapping = previousEndTime.isGreaterThan(currentStartTime) || previousEndTime.isEqualTo(currentStartTime);
+      const isSameCourse = previousTimeSlot.courseName === currentTimeSlot.courseName;
+      if (!isOverlapping || !isSameCourse) {
+        filteredTimeSlots.push(currentTimeSlot);
+        continue;
+      }
+      // create a new time slot with the same start time as the previous time slot
+      // and end time as the current time slot
+      const newTimeSlot = {
+        ...currentTimeSlot,
+        startTime: previousTimeSlot.startTime,
+        slot: previousTimeSlot.slot.includes(currentTimeSlot.slot) ? previousTimeSlot.slot : `${previousTimeSlot.slot}+${currentTimeSlot.slot}`,
+      };
+      filteredTimeSlots[filteredTimeSlots.length - 1] = newTimeSlot;
+    }
+  }
+
+  return filteredTimeSlots;
+}
+
+function getFilteredTimeTable(timeTable: TimeTable): TimeTable {
+  const filteredTimeTable: TimeTable = {};
+  if (timeTable === undefined) {
+    return undefined;
+  }
+  for (const day in timeTable) {
+    const timeSlots = timeTable[day];
+    timeSlots.sort((a, b) => {
+      const startTimeA = getStartTime(a);
+      const startTimeB = getStartTime(b);
+      if (startTimeA.isLessThan(startTimeB)) {
+        return -1;
+      } else if (startTimeA.isGreaterThan(startTimeB)) {
+        return 1;
+      } else {
+        return 0;
+      }
+    });
+    filteredTimeTable[day] = filterSameTimeSlots(timeSlots);
+  }
+  return filteredTimeTable;
+}
+
 export {
   type AttendanceInfoSlot,
   fetchAllDetails,
   getEndTime,
   getStartTime,
+  getFilteredTimeTable,
   type Student,
   Time,
   type TimeSlot,
