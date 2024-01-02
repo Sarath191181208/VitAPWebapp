@@ -18,6 +18,7 @@ import { fetchAllDetails, getFilteredTimeTable, type Student } from "../api/allD
 import { getAllDetailsUrl, rootUrl } from "../api/urls";
 import CloseSvg from "../components/icons/CloseSvg.svelte";
 import { unamePassword } from "$stores/usernamePassword";
+import { performLogin } from "./actions";
 
 let errorMessage: string | null;
 let allDetailsUrl = getAllDetailsUrl($rootUrl);
@@ -32,15 +33,7 @@ const getUserData = async (
   }
   try {
     showLoader = true;
-    let userDetails: Student = await fetchAllDetails(
-      allDetailsUrl,
-      username,
-      password,
-    );
-    unamePassword.set({ username, password });
-    let nonRepeatedTimeTable = getFilteredTimeTable(userDetails.timetable);
-    userDetails.timetable = nonRepeatedTimeTable;
-    studentData.set(userDetails);
+    await performLogin(allDetailsUrl, username, password);
     window.location.href = "/pages/home";
   } catch (error) {
     console.log(error);
