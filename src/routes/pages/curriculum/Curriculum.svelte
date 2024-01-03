@@ -69,16 +69,19 @@ $: {
 {#if searchString.length > 0}
   <!-- Search Category view -->
   {#each Object.keys(filteredCurriculum) as singleCategory}
+    {@const subjectList = filteredCurriculum[singleCategory]}
     <!-- keep a header for the category name -->
+    {#if subjectList.length > 0 }
     <div class="my-8 text-3xl">
       {toNamableKey(singleCategory)}
     </div>
     <div
       class="mt-2 grid grid-cols-1 gap-2 min-[440px]:grid-cols-2 sm:grid-cols-2">
-      {#each filteredCurriculum[singleCategory] as subject}
+      {#each subjectList as subject}
         <SubjectCard subject="{subject}" />
       {/each}
     </div>
+    {/if}
   {/each}
 {:else}
   <!-- Change programme scrollable div -->
