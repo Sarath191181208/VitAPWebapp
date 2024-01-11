@@ -6,9 +6,7 @@ loadStudentDataFromCache();
 
 // write to local cache
 studentData.subscribe((value) => {
-  if (value) {
-    localStorage.setItem("studentData-V1", JSON.stringify(value));
-  }
+  localStorage.setItem("studentData-V1", JSON.stringify(value));
 });
 
 function loadStudentDataFromCache() {
