@@ -1,6 +1,6 @@
 import { writable } from "svelte/store";
 
-export const rootUrl = writable<string>("http://127.0.0.1:5000");
+export const rootUrl = writable<string>("http://erp.vitap.app");
 let rootUrlValue = "http://127.0.0.1:5000";
 loadRootUrlFromCache();
 
