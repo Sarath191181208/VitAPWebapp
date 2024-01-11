@@ -28,8 +28,9 @@ async function loadCurriculum(rootUrl: string, regNo: string, cookie: string) {
       {#if $studentData !== null && $studentData.profile?.regNo !== undefined}
         {#await loadCurriculum($rootUrl, $studentData.profile.regNo, cookie)}
           <h1 class="text-5xl">Trying to get curriculum....</h1>
-        {:then}
+        {:then loadedCurriculum}
           <p class="hidden">loaded</p>
+          <!-- <Curriculum curriculum={loadedCurriculum} /> -->
         {:catch error}
           <h1 class="text-5xl">Error: {error.message}</h1>
         {/await}
