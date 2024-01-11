@@ -34,3 +34,7 @@ export function getLoginUrl(rootUrl: string) {
 export function getCurriculumUrl(rootUrl: string) {
   return rootUrl + "/api/v2/get_curriculum";
 }
+
+export function getExamScheduleUrl(rootUrl: string){
+  return rootUrl + "/api/v1/exam_schedule";
+}
