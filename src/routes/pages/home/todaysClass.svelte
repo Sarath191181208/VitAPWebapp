@@ -41,7 +41,7 @@ if (singleSlotEntryMap?.length == 0) {
     <Carousel perPage={1}>
       {#each singleSlotEntryMap as singleSlotEntry}
         <!-- Create a card style component using tailwind-->
-        <TimeTableCard className="h-44"  singleSlotEntry="{singleSlotEntry}" />
+        <TimeTableCard className="h-44 m-1"  singleSlotEntry="{singleSlotEntry}" />
       {/each}
     </Carousel>
   {:else}
