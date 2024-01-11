@@ -19,7 +19,6 @@ import CloseSvg from "../components/icons/CloseSvg.svelte";
 import { performLogin } from "./actions";
 
 let errorMessage: string | null;
-let allDetailsUrl = getAllDetailsUrl($rootUrl);
 let showLoader = false;
 
 const getUserData = async (
@@ -31,7 +30,7 @@ const getUserData = async (
   }
   try {
     showLoader = true;
-    await performLogin(allDetailsUrl, username, password);
+    await performLogin(getAllDetailsUrl($rootUrl), username, password);
     window.location.href = "/pages/home";
   } catch (error) {
     console.log(error);
