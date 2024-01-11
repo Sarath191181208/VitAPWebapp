@@ -38,8 +38,13 @@ const getUserData = async (
   } catch (error) {
     console.log(error);
     errorMessage = error.message;
+    errorMessage = error.toString();
   }
 };
+
+if ($studentData !== null){
+  window.location.href = '/pages/home'
+}
 
 const form = useForm();
 </script>
