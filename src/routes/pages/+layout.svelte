@@ -51,11 +51,11 @@ import AcademicsIcon from "../../components/icons/AcademicsIcon.svelte"
       </a>
 
       <a
-        href="/pages/academic_history"
+        href="/pages/curriculum"
         class="flex flex-col items-center justify-center py-2"
       >
         <AcademicsIcon className="text-xl"/>
-        <span class="text-xs">Academic History</span>
+        <span class="text-xs">Curriculum</span>
       </a>
     </div>
   </div>
