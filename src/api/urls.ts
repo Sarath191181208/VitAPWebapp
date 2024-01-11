@@ -1,7 +1,7 @@
 import { writable } from "svelte/store";
 
-export const rootUrl = writable<string>("http://erp.vitap.app");
-let rootUrlValue = "http://erp.vitap.app";
+export const rootUrl = writable<string>("https://erp.vitap.app");
+let rootUrlValue = "https://erp.vitap.app";
 loadRootUrlFromCache();
 
 rootUrl.subscribe((value) => {
