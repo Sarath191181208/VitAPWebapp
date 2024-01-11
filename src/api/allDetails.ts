@@ -1,3 +1,19 @@
+async function fetchAllDetails(
+  alldetailsUrl: string,
+  username: string,
+  password: string,
+): Promise<Student> {
+  // create a form data with username and password
+  const userNameAndPassword = new FormData();
+  userNameAndPassword.append("username", username);
+  userNameAndPassword.append("password", password);
+  const response = await fetch(alldetailsUrl, {
+    method: "POST",
+    body: userNameAndPassword,
+  });
+  return await response.json();
+}
+
 class Time {
   hours: number;
   minutes: number;
@@ -91,22 +107,6 @@ interface Student {
   attendance: AttendanceInfoSlot[] | undefined;
   profile: Profile;
   timetable: TimeTable;
-}
-
-async function fetchAllDetails(
-  alldetailsUrl: string,
-  username: string,
-  password: string,
-): Promise<Student> {
-  // create a form data with username and password
-  const userNameAndPassword = new FormData();
-  userNameAndPassword.append("username", username);
-  userNameAndPassword.append("password", password);
-  const response = await fetch(alldetailsUrl, {
-    method: "POST",
-    body: userNameAndPassword,
-  });
-  return await response.json();
 }
 
 function filterSameTimeSlots(timeSlots: TimeSlot[]): TimeSlot[] {
