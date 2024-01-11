@@ -39,6 +39,7 @@ interface AcademicHistory {
 }
 
 interface AttendanceInfoSlot {
+  history: { [date: string] : string};
   attended: number;
   total: number;
   code: string;

@@ -17,7 +17,7 @@ if (attendanceData != undefined && attendanceData.length == 0) {
 
 {#if attendanceData != undefined}
   {#each Object.values(attendanceData) as item}
-    <a href={`./attendance/singleslot/${item.code}+${item.courseName}`}>
+    <a href={`./attendance/singleslot?subjectDetails=${item.code}__${item.courseName}`}>
       <AttendanceInfoCard timeSlotDetails="{item}" className="m-5" />
     </a>
   {/each}
