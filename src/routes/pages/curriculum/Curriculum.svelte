@@ -20,28 +20,25 @@ let summedTotalCredits = Object.values(summedCredits).reduce(
 );
 let totalCreditsInfo = creditInfo[creditInfo.length - 1];
 let currentCategory = curriculumKeys[0];
-
-for (let key of curriculumKeys) {
-  let category = curriculum[key];
-  category.sort((a, b) => compare(getCourseScore(a), getCourseScore(b)));
+$: {
+  for (let key of curriculumKeys) {
+    let category = curriculum[key];
+    category.sort((a, b) => compare(getCourseScore(a), getCourseScore(b)));
+  }
 }
 
 let searchString = "";
 $: filteredCurriculum = curriculumKeys.reduce((acc, key) => {
-  let category = curriculum[key];
-  let filteredCategory = category.filter((subject) => {
+  let category = curriculum[key].filter((subject) => {
     let search = searchString.toLowerCase();
     return (
       subject.code.toLowerCase().includes(search) ||
       subject.course_title.toLowerCase().includes(search)
     );
   });
-  acc[key] = filteredCategory;
+  acc[key] = category;
   return acc;
 }, {} as Curriculum);
-$: {
-  console.log(filteredCurriculum);
-}
 </script>
 
 <h1
