@@ -14,7 +14,6 @@ let curriculumKeys = Object.keys(curriculum).filter(
   (k) => k !== "credit_info",
 ) as (keyof CourseTypes)[];
 let summedCredits = getSummedCredits(curriculumKeys, curriculum);
-
 let summedTotalCredits = Object.values(summedCredits).reduce(
   (a, c) => a + c,
   0,
@@ -71,21 +70,21 @@ $: {
   {#each Object.keys(filteredCurriculum) as singleCategory}
     {@const subjectList = filteredCurriculum[singleCategory]}
     <!-- keep a header for the category name -->
-    {#if subjectList.length > 0 }
-    <div class="my-8 text-3xl">
-      {toNamableKey(singleCategory)}
-    </div>
-    <div
-      class="mt-2 grid grid-cols-1 gap-2 min-[440px]:grid-cols-2 sm:grid-cols-2">
-      {#each subjectList as subject}
-        <SubjectCard subject="{subject}" />
-      {/each}
-    </div>
+    {#if subjectList.length > 0}
+      <div class="my-8 text-3xl">
+        {toNamableKey(singleCategory)}
+      </div>
+      <div
+        class="mt-2 grid grid-cols-1 gap-2 min-[440px]:grid-cols-2 sm:grid-cols-2">
+        {#each subjectList as subject}
+          <SubjectCard subject="{subject}" />
+        {/each}
+      </div>
     {/if}
   {/each}
 {:else}
   <!-- Change programme scrollable div -->
-  <div class="mt-8 overflow-x-auto">
+  <div class="mt-8 overflow-x-auto dark:text-white">
     <div class="flex gap-x-10">
       {#each curriculumKeys as curr_key, i}
         <button

@@ -1,11 +1,22 @@
 <script lang="ts">
 import { studentData } from "$stores/student";
 import { unamePassword } from "$stores/usernamePassword";
+import { curriculum } from "$stores/curriculum";
 import { getCurriculum, logIn } from "../../../api/sessionHandler";
 import { rootUrl } from "../../../api/urls";
 import Curriculum from "./Curriculum.svelte";
 const usernameAndPassword = $unamePassword;
+
+async function loadCurriculum(rootUrl: string, regNo: string, cookie: string) {
+  const curr = await getCurriculum(rootUrl, regNo, cookie);
+  $curriculum = curr;
+  return curr;
+}
 </script>
+
+{#if $curriculum !== null}
+  <Curriculum curriculum={$curriculum} />
+{/if}
 
 <div class="dark:text-white">
   {#if usernameAndPassword === null}
@@ -15,17 +26,17 @@ const usernameAndPassword = $unamePassword;
       <h1 class="text-5xl">Trying to logIn....</h1>
     {:then cookie}
       {#if $studentData !== null && $studentData.profile?.regNo !== undefined}
-        {#await getCurriculum($rootUrl, $studentData.profile.regNo, cookie)}
+        {#await loadCurriculum($rootUrl, $studentData.profile.regNo, cookie)}
           <h1 class="text-5xl">Trying to get curriculum....</h1>
-        {:then curriculum}
-          <Curriculum curriculum="{curriculum}" />
+        {:then}
+          <p class="hidden">loaded</p>
         {:catch error}
           <h1 class="text-5xl">Error: {error.message}</h1>
         {/await}
       {:else}
         <h1 class="text-5xl">Student data already isn't found !</h1>
       {/if}
-    {:catch error}
+    {:catch}
       <h1 class="text-5xl">Error loggin you in</h1>
     {/await}
   {/if}
