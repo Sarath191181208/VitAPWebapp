@@ -61,13 +61,11 @@ async function getCurriculum(
   roll_no: string,
   _cookie: string,
 ): Promise<Curriculum> {
-  console.log({ roll_no, _cookie });
   const curriculumUrl = getCurriculumUrl(rootUrl);
   const formData = new FormData();
   formData.append("roll_no", roll_no);
   formData.append("cookie", _cookie);
   const curriculumJson = await restApi.post(curriculumUrl, formData);
-  console.log(curriculumJson.data);
   return curriculumJson.data;
 }
 
