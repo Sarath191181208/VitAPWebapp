@@ -14,10 +14,8 @@ import {
   required,
 } from "svelte-use-form";
 import { studentData } from "../stores/student";
-import { fetchAllDetails, getFilteredTimeTable, type Student } from "../api/allDetails";
 import { getAllDetailsUrl, rootUrl } from "../api/urls";
 import CloseSvg from "../components/icons/CloseSvg.svelte";
-import { unamePassword } from "$stores/usernamePassword";
 import { performLogin } from "./actions";
 
 let errorMessage: string | null;
